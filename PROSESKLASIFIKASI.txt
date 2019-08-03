@@ -1,0 +1,75 @@
+    /*
+    public void prosesKlasifikasi2(DefaultTableModel tabelPros) throws SQLException{
+        int idxMaks = 0;
+        java.text.DecimalFormat df = new java.text.DecimalFormat("#.##############");
+        
+        String[] newLine = new String[3];
+        int i,j;
+        
+        //double[] akumulasiProb = {1.0,1.0};
+        
+        for(i=0;i<EntHasilPreprocessing.getTabelPrepro().getRowCount(); i++){
+            String kata = EntHasilPreprocessing.getTabelPrepro().getValueAt(i, 0).toString();
+            System.out.println(kata);
+            newLine[0]=kata;
+
+            try{
+                con.ambilData("Select prob_positif from hasil_pelatihan where kata='"+kata+"'");
+                if(con.isNotEmpty()){
+                    double pos= Double.parseDouble(con.tampilData()[0][0]);           
+   
+                        akumulasiProb[0]=akumulasiProb[0]*pos;
+                        
+               
+                }
+                 con.ambilData("Select prob_negatif from hasil_pelatihan where kata='"+kata+"'");
+                if(con.isNotEmpty()){
+                    double neg= Double.parseDouble(con.tampilData()[0][0]);           
+   
+                        akumulasiProb[1]=akumulasiProb[1]*neg;
+               
+                }
+                
+                
+                
+            }catch(SQLException e){
+                System.out.print("XaX="+e.getMessage());
+            }
+        }
+        
+        try{
+            con.ambilData("SELECT prob_positif, prob_negatif from dokumen order by id_dokumen desc limit 1 ");
+            String[][] Data=con.tampilData();
+            
+            for(i=0;i<2;i++){
+                probSentimen[i] = Double.parseDouble(Data[0][i]);
+               
+                Probabilitas[i] = probSentimen[i] * akumulasiProb[i];
+               // System.out.println("1 = "+Probabilitas[i]);
+                // System.out.println("2 = "+Probabilitas[idxMaks]);
+                if(Double.compare(Probabilitas[i], Probabilitas[idxMaks])>0){
+                    idxMaks = i;
+                }
+                try{
+                    Probabilitas[i]=df.parse(df.format(Probabilitas[i])).doubleValue();
+                }catch (ParseException ex){
+                    Logger.getLogger(ContKlasifikasi.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+        }catch (SQLException e){
+            System.out.print("cc "+e.getMessage());
+        }
+        
+        if(idxMaks==0){
+            Kesimpulan="Positif";
+            System.out.println("kesimpulan = "+Kesimpulan);
+        }else if(idxMaks==1){
+            Kesimpulan="Negatif";
+            System.out.println("kesimpulan = "+Kesimpulan);
+        }        
+    }
+    
+    */
+    
+    
